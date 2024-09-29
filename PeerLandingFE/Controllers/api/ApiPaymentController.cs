@@ -30,12 +30,12 @@ namespace PeerLandingFE.Controllers.api
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetLastPaymentByLoanId(string loanId)
+        public async Task<IActionResult> GetLastPaymentByLoanId(string id)
         {
             var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await _httpClient.GetAsync($"https://localhost:7191/rest/v1/borrower/GetLastPaymentByLoanId/{loanId}");
-
+            var response = await _httpClient.GetAsync($"https://localhost:7191/rest/v1/borrower/GetLastPaymentByLoanId/{id}");
+            
             if (response.IsSuccessStatusCode)
             {
                 var responseData = await response.Content.ReadAsStringAsync();
@@ -49,11 +49,11 @@ namespace PeerLandingFE.Controllers.api
 
 
         [HttpPost]
-        public async Task<IActionResult> AddPayment(string loanId, [FromBody] ReqAddPaymentDto reqAddPayment)
+        public async Task<IActionResult> AddPayment(string id, [FromBody] ReqAddPaymentDto reqAddPayment)
         {
             var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await _httpClient.PostAsJsonAsync($"https://localhost:7191/rest/v1/borrower/AddPayment/{loanId}", reqAddPayment);
+            var response = await _httpClient.PostAsJsonAsync($"https://localhost:7191/rest/v1/borrower/AddPayment/{id}", reqAddPayment);
 
             if (response.IsSuccessStatusCode)
             {
@@ -66,11 +66,11 @@ namespace PeerLandingFE.Controllers.api
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateSaldoPaymentBorrower(string borrowerId, [FromBody] ReqUpdateAmountDto reqUpdateAmount)
+        public async Task<IActionResult> UpdateSaldoPaymentBorrower(string id, [FromBody] ReqUpdateAmountDto reqUpdateAmount)
         {
             var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await _httpClient.PutAsJsonAsync($"https://localhost:7191/rest/v1/borrower/UpdateSaldoPaymentBorrower/{borrowerId}", reqUpdateAmount);
+            var response = await _httpClient.PutAsJsonAsync($"https://localhost:7191/rest/v1/borrower/UpdateSaldoPaymentBorrower/{id}", reqUpdateAmount);
 
             if (response.IsSuccessStatusCode)
             {
@@ -83,11 +83,11 @@ namespace PeerLandingFE.Controllers.api
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateSaldoPaymentLender(string loanId, [FromBody] ReqUpdateAmountDto reqUpdateAmount)
+        public async Task<IActionResult> UpdateSaldoPaymentLender(string id, [FromBody] ReqUpdateAmountDto reqUpdateAmount)
         {
             var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await _httpClient.PutAsJsonAsync($"https://localhost:7191/rest/v1/borrower/UpdateSaldoPaymentLender/{loanId}", reqUpdateAmount);
+            var response = await _httpClient.PutAsJsonAsync($"https://localhost:7191/rest/v1/borrower/UpdateSaldoPaymentLender/{id}", reqUpdateAmount);
 
             if (response.IsSuccessStatusCode)
             {
@@ -100,11 +100,11 @@ namespace PeerLandingFE.Controllers.api
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateStatusRepay(string loanId, [FromBody] ReqUpdateStatusRepayDto reqUpdateStatusRepay)
+        public async Task<IActionResult> UpdateStatusRepay(string id, [FromBody] ReqUpdateStatusRepayDto reqUpdateStatusRepay)
         {
             var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await _httpClient.PutAsJsonAsync($"https://localhost:7191/rest/v1/borrower/UpdateStatusRepay/{loanId}", reqUpdateStatusRepay);
+            var response = await _httpClient.PutAsJsonAsync($"https://localhost:7191/rest/v1/borrower/UpdateStatusRepay/{id}", reqUpdateStatusRepay);
 
             if (response.IsSuccessStatusCode)
             {

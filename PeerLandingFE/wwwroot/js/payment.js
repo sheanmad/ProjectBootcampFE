@@ -65,7 +65,7 @@ async function addPayment () {
             Amount: newPaidAmount,
             RepaidAmount: lastPaidAmount + newPaidAmount,
             BalanceAmount: loanAmount - (lastPaidAmount + newPaidAmount),
-            RepaidStatus: (lastPaidAmount + newPaidAmount >= loanAmount) ? 'Paid' : 'Pending',
+            RepaidStatus: (lastPaidAmount + newPaidAmount >= loanAmount) ? 'done' : 'on_repay',
             PaidAt: new Date().toISOString()
         };
 
