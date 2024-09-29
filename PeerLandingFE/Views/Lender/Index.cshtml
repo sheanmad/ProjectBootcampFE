@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Lender";
+}
+
+<h2>Lender</h2>
+<body>
+    <table class="table table-striped" id="loanTable">
+        <thead>
+            <tr>
+                <th>Borrower</th>
+                <th>Amount</th>
+                <th>Interest Rate</th>
+                <th>Duration (Months)</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+</body>
+
+@section Scripts {
+    <script src="~/js/lender.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+}

@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Payment";
+}
+
+<h2>Payment</h2>
+<body>
+    <table class="table table-striped" id="paymentTable">
+        <thead>
+            <tr>
+                <th>Months</th>
+                <th>Paid Amount</th>
+                <th>Interest Rate</th>
+                <th>Select</th> <!-- Added a header for the checkboxes -->
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <button id="addPaymentButton" class="btn btn-primary" onClick="addPayment()">Add Payment</button>
+
+
+</body>
+
+@section Scripts {
+    <script src="~/js/payment.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+}
